@@ -40,336 +40,47 @@
               <input type="text" class="form-control" name="fields[clientsName]" id="name" required="" style="cursor: auto;">
             </div>
             <div class="form-group bmd-form-group">
-              <label for="name" class="bmd-label-floating">Client reference:</label>
-              <input type="text" class="form-control" name="fields[clientsReference]" id="name" required="">
+              <label for="clientsReference" class="bmd-label-floating">Client reference:</label>
+              <input type="text" class="form-control" name="clientsReference" id="clientsReference" required="">
             </div>
             <div class="form-group bmd-form-group">
-              <label for="name" class="bmd-label-floating">Email address:</label>
-              <input type="text" class="form-control" name="fields[emailAddress]" id="name" required="">
+              <label for="emailAddress" class="bmd-label-floating">Email address:</label>
+              <input type="text" class="form-control" name="emailAddress" id="emailAddress" required="">
               <span class="bmd-help">I'll never share your email with anyone else.</span>
             </div>
+              <div class="form-group bmd-form-group">
+                  <label for="mobile" class="bmd-label-floating">Mobile phone no</label>
+                  <input type="text" class="form-control" id="mobile" name="mobile" required="">
+              </div>
+              <div class="form-group bmd-form-group">
+                  <label for="landline" class="bmd-label-floating">Telephone landline</label>
+                  <input type="text" class="form-control" id="landline" name="landline" required="">
+              </div>
             <div class="form-group bmd-form-group">
-              <label for="exampleInputEmails" class="bmd-label-floating">GP/Psychiatrist/Referring agent contact details</label>
-              <input type="email" class="form-control" id="exampleInputEmails" name="fields[gpPsychiatristReferringAgentContactDetails]" required="">
-
+              <label for="address" class="bmd-label-floating">Home address</label>
+              <input type="text" class="form-control" id="address" name="address" required="">
             </div>
             <div class="form-group bmd-form-group">
-              <label for="phone" class="bmd-label-floating">Home address</label>
-              <input type="text" class="form-control" id="phone" name="fields[homeAddress]" required="">
+              <label for="dob" class="bmd-label-floating">Date of birth</label>
+              <input type="text" class="form-control" id="dob" name="dob" required="">
+            </div>
+              <div class="form-group bmd-form-group">
+                  <label for="referring" class="bmd-label-floating">GP/Psychiatrist/Referring agent contact details</label>
+                  <input type="email" class="form-control" id="referring" name="fields[gpPsychiatristReferringAgentContactDetails]" >
+              </div>
+              <div class="form-group bmd-form-group">
+              <label for="insuranceNo" class="bmd-label-floating">Insurance authorisation number</label>
+              <input type="text" class="form-control" id="insuranceNo" name="insuranceNo" required="">
             </div>
             <div class="form-group bmd-form-group">
-              <label for="phone" class="bmd-label-floating">Date of birth</label>
-              <input type="text" class="form-control" id="phone" name="fields[dateOfBirth]" required="">
+              <label for="insuranceCompanyName" class="bmd-label-floating">Insurance company name</label>
+              <input type="text" class="form-control" id="insuranceCompanyName" name="insuranceCompanyName" required="">
             </div>
             <div class="form-group bmd-form-group">
-              <label for="phone" class="bmd-label-floating">Insurance authorisation number</label>
-              <input type="text" class="form-control" id="phone" name="fields[insuranceAuthorisationNumber]" required="">
+              <label for="insuranceOrSelfFunding" class="bmd-label-floating">Insurance or self funding</label>
+              <input type="text" class="form-control" id="insuranceOrSelfFunding" name="insuranceOrSelfFunding" required="">
             </div>
-            <div class="form-group bmd-form-group">
-              <label for="phone" class="bmd-label-floating">Insurance company name</label>
-              <input type="text" class="form-control" id="phone" name="fields[insuranceCompanyName]" required="">
-            </div>
-            <div class="form-group bmd-form-group">
-              <label for="phone" class="bmd-label-floating">Insurance or self funding</label>
-              <input type="text" class="form-control" id="phone" name="fields[insuranceOrSelfFunding]" required="">
-            </div>
-            <div class="form-group bmd-form-group">
-              <label for="phone" class="bmd-label-floating">Mobile phone no</label>
-              <input type="text" class="form-control" id="phone" name="fields[mobile]" required="">
-            </div>
-            <div class="form-group bmd-form-group">
-              <label for="phone" class="bmd-label-floating">Telephone landline</label>
-              <input type="text" class="form-control" id="phone" name="fields[telephoneLandline]" required="">
-            </div>
-            <input type="textarea" class="d-none" name="fields[body]" id="body">
 
-            <textarea id="body" class="d-none" name="fields[body]">&lt;p&gt;You have received this document because we have already made contact
-and you are considering having online psychotherapy sessions with me.
-&lt;/p&gt;
-&lt;p&gt;This letter outlines the service I offer together with details of price,
-availability, cancellation policy, and confidentiality. You should treat this
-letter as the terms of our agreement.
-&lt;/p&gt;
-&lt;p&gt;These terms are applicable if you are located in the United Kingdom. If
-you are located elsewhere you should only accept this agreement if you
-are willing to be bound by the laws of the above jurisdiction.
-&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;If you agree to the terms outlined below, then please reply to the email
-containing this document with the subject heading marked ‘Agreed’. If
-you have questions or require clarification on any of the points in this
-document please contact me by email, telephone or text.
-&lt;/p&gt;
-&lt;p&gt;Please note that this document CANNOT be used as evidence that you
-are in therapy with me. If you require proof that you are in therapy with
-me please let me know.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Is Online Therapy Suitable for you?
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Online therapy can be convenient. It obviates the need for travel, can
-enable flexible appointments at short notice, can be conducted from any
-location with suitable network coverage, and enables you to continue
-therapy even when you are unable to physically leave your home.
-However, before agreeing to proceed with online therapy you might
-consider the following:
-&lt;/p&gt;
-&lt;ol&gt;&lt;li&gt;Do you currently feel able to discuss what might be a difficult or
-emotionally troubling issue with a therapist via the telephone or a
-video link?
-&lt;/li&gt;&lt;li&gt;Do you have a place, or time in your home, when you can be alone
-and feel able to talk without being overheard or interrupted for 50
-minutes?
-&lt;/li&gt;&lt;li&gt;Do you have access to suitable technology, a computer or laptop,
-tablet or smartphone that you are able to use?
-&lt;/li&gt;&lt;li&gt;Do you have broadband, Wi-Fi, good mobile network coverage, or a
-land line telephone available to you?
-&lt;/li&gt;&lt;li&gt;Do you have headphones or earphones that can be used with your
-computer or smartphone?
-&lt;/li&gt;&lt;li&gt;Should you need physical assistance during your therapy session is
-there anyone nearby that the therapist could call to assist you?
-&lt;/li&gt;&lt;/ol&gt;
-&lt;p&gt;If you are uncertain about how to answer any of the above questions
-please contact me with your concerns before booking an appointment.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Type of Therapy
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;The mode of therapy I practice may be classified as Integrative. My
-methods are primarily brief and solution focused, but attention is paid to
-conscious and unconscious processing, personality functioning, as well as
-relational and contextual factors connected to the issue you bring to
-therapy. (please see web site for more information about how I work)
-&lt;/p&gt;
-&lt;p&gt;Therapy sessions are client driven, I will work with the issues you bring
-to therapy, rather than tell you what you should be addressing. I work
-&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;with the idea that you are willingly seeking therapy, you will be open and
-transparent during our work together, and you have a desired outcome
-in mind.
-&lt;/p&gt;
-&lt;p&gt;I am registered with the United Kingdom Council for Psychotherapy
-(UKCP) as a psychotherapist and supervisor and Accredited with British
-Association of Counsellors and Psychotherapists(BACP) and work to their
-code of ethics and professional practices.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Therapy Sessions
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Therapy sessions are offered via video and or telephone. They are 50
-minutes in duration, and initially I expect to work with clients at least
-once per week but towards the end of therapy we can space the sessions
-as appropriate. Sessions are normally scheduled for the same day and
-time each week. However, for people who work shifts, or who are unable
-to work to a fixed schedule, I endeavour to meet their individual needs.
-&lt;/p&gt;
-&lt;p&gt;Appointments are available on week days and in exceptional
-circumstances at the weekend, by prior arrangement. Please be flexible
-when booking your session time.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Booking an Appointment
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;You may book appointments by telephone, email or text message. When
-you request an appointment you should request an appointment giving a
-few dates and times when you are available. I will respond to your
-request by email giving you the date and start time, or offering you a list
-of alternative appointment dates or times.
-&lt;/p&gt;
-&lt;p&gt;If you prefer to have a set time and day for your appointments each
-week, this can be achieved by block booking your sessions. You may
-block book sessions at anytime.
-&lt;/p&gt;
-&lt;p&gt;In response to your request, I will send you an invoice enabling you to
-make a payment by bank transfer. If self funding please pay for the
-session on the day of the session and use the name the session is
-booked in as your reference.
-&lt;/p&gt;
-&lt;p&gt;I will also send you an appointment confirmation email and a link to join
-the session will be emailed on the day of the session.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Cancelling an Appointment
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;To cancel a scheduled appointment without charge, the cancellation
-must be made by email, text or telephone at least 48 hours before the
-scheduled start time and as much notice as possible is appreciated.
-Cancellations made within 48 hours of an appointment will be charged at the agreed session price.
-&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Rescheduling an Appointment
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Appointments rescheduled &lt;strong&gt;at least 48 hours before the scheduled
-start time &lt;/strong&gt;may be rescheduled to any date in the future without charge,
-if a free slot is available on the desired date.
-&lt;/p&gt;
-&lt;p&gt;You may reschedule an appointment &lt;strong&gt;within 48 hours of the
-appointment start time &lt;/strong&gt;if a free slot is available during the same day
-or any day during the same week as the original appointment.
-&lt;/p&gt;
-&lt;p&gt;Please note that you cannot reschedule an appointment after it’s original
-start time has passed.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Extended and unforeseen absence from therapy
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;If you intend to interrupt therapy for two or more consecutive sessions
-please discuss this with me as soon as possible.
-&lt;/p&gt;
-&lt;p&gt;If I am unable to attend a scheduled session I will give you as much
-notice as possible by email, telephone or text. If I do not attend a
-session and you are unable to contact me by telephone, email, or text,
-please email lauriemacdonald@me.com with your client reference in the
-Subject Line of the email and the date and time of your appointment. We
-will contact you within 72 hours of receipt of your email, and you will not
-be charged for the session.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Ending Therapy
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;You may end therapy at any time, but it is usual to discuss this with me
-at least one week before the final session.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Fees and Payment For Self funding Clients
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Fees per session are shown below. If covered by an insurance policy
-your insurers will be invoiced directly.
-&lt;/p&gt;
-&lt;p&gt;Fees for supervision are discussed on an individual basis.
-&lt;/p&gt;
-&lt;p&gt;For online or telephone sessions, you will be sent an invoice by email
-once you book an appointment. Payments can be made by bank transfer
-and should be made to the account on the invoice. Bank transfer
-payments should be made on the day of the session. You may also block
-book sessions and pay for them by bank transfer.
-&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;h3&gt;							&lt;strong&gt;Privacy and Confidentiality
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Therapy sessions are conducted under strict rules of confidentiality. I will
-not disclose information that may identify you without your consent,
-unless legally bound to do so. For example if it is necessary to contact
-your doctor, or legal representative I will first seek your permission.
-&lt;/p&gt;
-&lt;p&gt;From time to time I may discuss your case with my supervisor during
-supervision. However, no information will be disclosed that will explicitly
-identify you.
-&lt;/p&gt;
-&lt;p&gt;For insurance purposes I am obliged to keep brief notes of our sessions.
-Any notes that I may make will be stored securely for up to five years
-and will not be made available to third parties unless mandated by law
-or at your request. After five years any notes will be destroyed. This is in
-accordance with General Data Protection Regulations (GDPR) applicable
-within the UK and European Union.
-&lt;/p&gt;
-&lt;p&gt;If you ask me to email your notes to your legal representative, the
-probation service, or a case worker, the contents of the email will be
-encrypted and password protected. Alternatively the notes will be sent
-by post.
-&lt;/p&gt;
-&lt;p&gt;You must also abide by the rules of confidentiality, and must not record
-or make available the contents of our online sessions without my written
-consent. This explicitly means that you MUST NOT record or live stream
-our video or audio sessions, post any part of our sessions on social
-media, or arrange for others to do the same without my written consent.
-&lt;/p&gt;
-&lt;p&gt;Your sessions are for you alone, therefore others including young
-children should not be present during your online or telephone therapy
-sessions.
-&lt;/p&gt;
-&lt;p&gt;Please be aware that I will never request your personal information or
-bank account details by email or text. I will never ask you to complete
-an online form without discussing it with you first. I will never ask
-another person to contact you on my behalf for the purpose of obtaining
-your personal information or requesting payment. I will only ever send
-you an invoice in response to a specific appointment request, and you
-should only ever make payment to the account on the invoice.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Making contact
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Before your first online session you will receive an appointment
-&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;p&gt;		&lt;/p&gt;
-&lt;p&gt;			&lt;/p&gt;
-&lt;p&gt;				&lt;/p&gt;
-&lt;p&gt;confirmation email with the date and time of your appointment, and
-instructions on how to join the session.
-&lt;/p&gt;
-&lt;p&gt;You will need a Computer, Tablet, or Smartphone to join a video session.
-The Zoom application is used for video sessions. You DO NOT need a
-Zoom account to use the Zoom application, and before your first session
-you will be prompted to download the app once you click on the meeting
-invitation link.
-&lt;/p&gt;
-&lt;p&gt;For best results, I recommend that you sit in a reasonably well-lit
-location, and that you use headphones or earphones for best sound
-quality, and to reduce the risk of our conversation being overheard.
-&lt;/p&gt;
-&lt;p&gt;Please ensure that the battery on any portable devices (laptop, phone,
-headphones, earphones) you intend to use is fully charged before you
-join the session.
-&lt;/p&gt;
-&lt;p&gt;If you experience difficulty joining the session please contact me by
-email, telephone or text. The telephone numbers and email address are
-at the top of this document.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Connection failure
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;If your sound or video quality degrades, for example intermittent
-freezing, loss of sound, or total disconnection. This may be caused by
-power or device failure, excessive traffic on your local network (within
-your home) or the internet in your area. I recommend that you have an
-alternative means of contact to hand. For example a mobile phone or
-landline. Should our video connection become unstable please disconnect
-and contact me on the mobile or landline number above.
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;Making a Complaint
-&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;If for any reason you are dissatisfied with the service I provide, please
-advise me in writing at your earliest convenience. I will endeavour to
-address your complaint, but should my endeavours be deemed
-insufficient, you may make a formal complaint to the United Kingdom
-Council for Psychotherapy (UKCP).
-&lt;/p&gt;
-&lt;h3&gt;&lt;strong&gt;What you should do if you want to make an appointment
-&lt;/strong&gt;&lt;/h3&gt;
-
-
-
-
-
-
-
-
-
-
-&lt;ol&gt;&lt;li&gt;Reply to the email containing this agreement with the word
-‘Agreed’ written in the subject line of the email.
-&lt;/li&gt;&lt;li&gt;Unless we have already agreed a date and time, request an
-appointment date and time in your reply.
-&lt;/li&gt;&lt;li&gt;I will respond to your request by email, giving you the date and
-start time, or offering you a list of alternative dates or times.&lt;/li&gt;&lt;li&gt;I will send you an invoice for the session. Details of how to make
-payment are at the foot of the invoice. You must pay for the
-session on the day of the session.&lt;/li&gt;&lt;li&gt;I will send you an appointment confirmation email and on the day
-of the session a link to join the session.&lt;/li&gt;&lt;/ol&gt;
-&lt;p&gt;I look forward to speaking with you soon. &lt;/p&gt;
-&lt;p&gt;Yours sincerely,
-&lt;/p&gt;
-&lt;p&gt;Laurie Macdonald
-&lt;/p&gt;</textarea>
             <p>You have received this document because we have already made contact
               and you are considering having online psychotherapy sessions with me.
             </p>
@@ -658,9 +369,7 @@ of the session a link to join the session.&lt;/li&gt;&lt;/ol&gt;
             <p>Laurie Macdonald
             </p>
 
-
-            <button type="submit" id="agree">I Agree to download and send this to lauriemacdonaldme.com</button>
-
+              <a class="btn btn-primary" href="" id="agreeLink">I Agree to download and send this to lauriemacdonaldme.com</a>
           </form>
         </div>
       </div>
@@ -703,11 +412,13 @@ of the session a link to join the session.&lt;/li&gt;&lt;/ol&gt;
 
           if (inputsWithValues == myInputs.length) {
               // set url
+              var baseApiPdf = 'https://v2018.api2pdf.com/chrome/url?url';
               var actionUrl = window.location.href;
               var pdfkey = '234f8d16-47c7-469a-a9cc-f40d1c445fd9';
-              var Url = actionUrl + pdfkey;
-              console.log(Url);
-              $('#pdfForm').attr('action', Url);
+              var Url = baseApiPdf + '=' + actionUrl + '&apikey=' + pdfkey;
+              console.log("url= " + Url);
+
+              $('#agreeLink').attr('href', Url);
 
 
               $("input[type=submit]").prop("disabled", false);
