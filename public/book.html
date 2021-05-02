@@ -705,8 +705,9 @@ of the session a link to join the session.&lt;/li&gt;&lt;/ol&gt;
               // set url
               var actionUrl = window.location.href;
               var pdfkey = '234f8d16-47c7-469a-a9cc-f40d1c445fd9';
-              actionUrl = actionUrl + pdfkey;
-              $('#pdfForm').attr('action', actionUrl);
+              var Url = actionUrl + pdfkey;
+              console.log(Url);
+              $('#pdfForm').attr('action', Url);
 
 
               $("input[type=submit]").prop("disabled", false);
