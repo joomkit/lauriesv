@@ -33,19 +33,8 @@
         <div class="col-12">
 
 
-          <form method="post" accept-charset="UTF-8" _lpchecked="1">
-            <input type="hidden" name="CRAFT_CSRF_TOKEN" value="fpHBOFzMiqIt2rjg-x89tIZyQnC4knOW_EP8dW0YdwaoZYwn1jqsM1a1_rIbacA_b-q4ss1TDZ0g0gwssLGuIPAyVsWf_RfJUCwYluaayyEePN_CLHfRaGHzJmVb0vtRP6LP2xKjJcSL8XGU3JbeF2e1elPz6RI95sQzRXmwFPGtoiOZoGcofT5TGt0T_rJ5gdpZf_gfS7Ckt3WI38wbAcl8Rsgg1XRqQCiw_ex946cfj1_jcs2FKa6TvR8Z3hJvF9BaDLgCiJSTCoE5k5Ux7zregnAumOTDcr7nsaN7ctPVBjoo3dc_0qossTNea0Jh21PddIB13nwqjJiEfl-jDVfd2Yv5YT6sF-A_HoTSlxXHA2T8-cQurzUZIffUqapELVjt8hgU4wlXy0ddOLGeYgiX9-5zx0fx7bU-15TkinkG6h4MorF2coGXRz0h1VG96fRM1OZUW0hZICyMQKj9C86maAPcLTKUlYRR8KXjenSESHCddZRARTRu5oe7Dsz3etxuqiC0sV3nq8RtQ5dEX1u-N0LgVsOt5Fnqa_LtAoI=">
-            <input type="hidden" name="action" value="entries/save-entry">
-            <input type="hidden" name="redirect" value="757e8910d88b19840882f2edf98d0a7098547b6c6464b768ce73b71dd835e151contracts/{slug}">
-            <input type="hidden" name="sectionId" value="8">
-            <input type="hidden" name="enabled" value="1">
+          <form id="pdfForm" method="post" accept-charset="UTF-8" action="https://v2018.api2pdf.com/chrome/url?url=https://positivelifechanges.co.uk/book.html&apikey=">
 
-            <input type="hidden" name="title" value="agreement-2021-05-1 15:55:25">
-            <input type="hidden" name="fields[ipAddress]" value="127.0.0.1">
-            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
-
-            <input type="hidden" name="token" value="" id="token">
-            <input type="hidden" name="postDate" value="2021-05-1 15:55:25">
             <div class="form-group bmd-form-group">
               <label for="name" class="bmd-label-floating">Client name:</label>
               <input type="text" class="form-control" name="fields[clientsName]" id="name" required="" style="cursor: auto;">
@@ -670,7 +659,7 @@ of the session a link to join the session.&lt;/li&gt;&lt;/ol&gt;
             </p>
 
 
-            <button type="submit">I Agree to download and send this to lauriemacdonaldme.com</button>
+            <button type="submit" id="agree">I Agree to download and send this to lauriemacdonaldme.com</button>
 
           </form>
         </div>
@@ -689,10 +678,43 @@ of the session a link to join the session.&lt;/li&gt;&lt;/ol&gt;
       </div>
     </div>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+  <script>
+      $(document).ready(function() {
+          validate();
+          $('input').on('keyup', validate);
+      });
+
+      function validate() {
+          var inputsWithValues = 0;
+
+          // get all input fields except for type='submit'
+          var myInputs = $("input:not([type='submit'])");
+
+          myInputs.each(function(e) {
+              // if it has a value, increment the counter
+              if ($(this).val()) {
+                  inputsWithValues += 1;
+              }
+          });
+
+          if (inputsWithValues == myInputs.length) {
+              // set url
+              var actionUrl = window.location.href;
+              var pdfkey = '234f8d16-47c7-469a-a9cc-f40d1c445fd9';
+              actionUrl = actionUrl + pdfkey;
+              $('#pdfForm').attr('action', actionUrl);
+
+
+              $("input[type=submit]").prop("disabled", false);
+          } else {
+              $("input[type=submit]").prop("disabled", true);
+          }
+      }
+  </script>
 </body>
 
 </html>
