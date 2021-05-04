@@ -395,6 +395,12 @@
       $(document).ready(function() {
         (new URL(location)).searchParams.forEach((x, y) =>
                 document.getElementById(y).value = x);
+
+        var baseApiPdf = 'https://v2018.api2pdf.com/chrome/url?url';
+        var actionUrl = window.location.href;
+        var pdfkey = '234f8d16-47c7-469a-a9cc-f40d1c445fd9';
+        var url = baseApiPdf + '=' + actionUrl + '&apikey=' + pdfkey;
+        $('#agreeLink').attr('href',url);
       });
 
 

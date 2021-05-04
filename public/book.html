@@ -411,10 +411,9 @@
               var Url = baseApiPdf + '=' + actionUrl + '&apikey=' + pdfkey;
               console.log("url= " + Url);
 
-              //local
+              // make url to send params
              var hostUrl = window.location.protocol + "//" + window.location.host;
-
-            var  url = hostUrl + '/make-contract.html?' + hash;
+             var  url = hostUrl + '/make-contract.html?' + hash;
 
               $('#agreeLink').attr('href',url);
 
