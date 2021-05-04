@@ -37,15 +37,15 @@
 
             <div class="form-group bmd-form-group">
               <label for="name" class="bmd-label-floating">Client name:</label>
-              <input type="text" class="form-control" name="name" id="name" required="" style="cursor: auto;">
+              <input type="text" class="form-control" name="name" id="name"  value="" required="" style="cursor: auto;">
             </div>
             <div class="form-group bmd-form-group">
               <label for="clientsReference" class="bmd-label-floating">Client reference:</label>
-              <input type="text" class="form-control" name="clientsReference" id="clientsReference" required="">
+              <input type="text" class="form-control" name="clientsReference" id="clientsReference" value="" required="">
             </div>
             <div class="form-group bmd-form-group">
               <label for="emailAddress" class="bmd-label-floating">Email address:</label>
-              <input type="text" class="form-control" name="emailAddress" id="emailAddress" required="">
+              <input type="text" class="form-control" name="emailAddress" id="emailAddress"  value="" required="">
               <span class="bmd-help">I'll never share your email with anyone else.</span>
             </div>
 
@@ -363,16 +363,16 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script>
       $(document).ready(function() {
-
-         // $('input').on('keyup', validate);
-
-        const hash = '?name=some&emailAddress=me@me.com&clientsReference=pool';
-        // const example = "http://example.com/" + hash;
-        var example = window.location.href + '/' + hash;
-        console.log(example);
-        (new URL(example)).searchParams.forEach((x, y) =>
-                document.getElementById(y).value = x);
         validate();
+         $('input').on('keyup', validate);
+
+        // const hash = '?name=some&emailAddress=me@me.com&clientsReference=pool';
+        // // const example = "http://example.com/" + hash;
+        // var example = window.location.href + '/' + hash;
+        // console.log(example);
+        // (new URL(example)).searchParams.forEach((x, y) =>
+        //         document.getElementById(y).value = x);
+        //validate();
       });
 
       // const hash = '?name=some_text&email=more%20text';
@@ -393,22 +393,30 @@
               // if it has a value, increment the counter
               if ($(this).val()) {
                   tmpHash =  tmpHash + '&' + $(this).attr('id') + '=' + $(this).val();
+                $(this).attr('value') + '=' + $(this).val();
                   console.log($(this).attr('id'));
+
+
                   inputsWithValues += 1;
               }
           });
-          hash = encodeURI(tmpHash);
-          console.log(inputsWithValues);
+        hash = encodeURI(tmpHash);
+        console.log(hash);
 
           if (inputsWithValues == myInputs.length) {
               // set url
               var baseApiPdf = 'https://v2018.api2pdf.com/chrome/url?url';
-              var actionUrl = window.location.href + '?' + tmpHash;
+              var actionUrl = window.location.href + '?' + hash;
               var pdfkey = '234f8d16-47c7-469a-a9cc-f40d1c445fd9';
               var Url = baseApiPdf + '=' + actionUrl + '&apikey=' + pdfkey;
               console.log("url= " + Url);
 
-              $('#agreeLink').attr('href', Url);
+              //local
+             var hostUrl = window.location.protocol + "//" + window.location.host;
+
+            var  url = hostUrl + '/make-contract.html?' + hash;
+
+              $('#agreeLink').attr('href',url);
 
 
               $("input[type=submit]").prop("disabled", false);

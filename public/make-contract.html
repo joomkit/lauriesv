@@ -393,39 +393,11 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script>
       $(document).ready(function() {
-          validate();
-          $('input').on('keyup', validate);
+        (new URL(location)).searchParams.forEach((x, y) =>
+                document.getElementById(y).value = x);
       });
 
-      function validate() {
-          var inputsWithValues = 0;
 
-          // get all input fields except for type='submit'
-          var myInputs = $("input:not([type='submit'])");
-
-          myInputs.each(function(e) {
-              // if it has a value, increment the counter
-              if ($(this).val()) {
-                  inputsWithValues += 1;
-              }
-          });
-
-          if (inputsWithValues == myInputs.length) {
-              // set url
-              var baseApiPdf = 'https://v2018.api2pdf.com/chrome/url?url';
-              var actionUrl = window.location.href;
-              var pdfkey = '234f8d16-47c7-469a-a9cc-f40d1c445fd9';
-              var Url = baseApiPdf + '=' + actionUrl + '&apikey=' + pdfkey;
-              console.log("url= " + Url);
-
-              $('#agreeLink').attr('href', Url);
-
-
-              $("input[type=submit]").prop("disabled", false);
-          } else {
-              $("input[type=submit]").prop("disabled", true);
-          }
-      }
   </script>
 </body>
 
