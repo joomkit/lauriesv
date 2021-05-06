@@ -6596,7 +6596,7 @@
     const getWord = async () => {
         const textBlock = document.getElementById("token-p")
         try {
-            const response = await fetch('/.netlify/functions/return-env')
+            const response = await fetch('/netlify/functions/return-env')
             const resObj = await response.json()
             console.log(resObj)
             textBlock.innerHTML = `Your FAKE_TOKEN is <strong>${resObj.token}</strong>`
