@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function (event) {
 
-    console.log("ENV " + process.env.LIVEapi2pdf);
+    console.log("ENV " + process.env.LIVE_API2PDF_KEY);
 
     var childContainer = document.getElementById('formData');
     var ul = document.getElementById('clientDetails');
