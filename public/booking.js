@@ -133,17 +133,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     function printHtmlToPdf(html) {
 
-        var pdfName = 'Online Psychotherapy Contract for ' + cName.value
-        var endpoint = 'https://v2018.api2pdf.com/wkhtmltopdf/html';
-        var apikey = '234f8d16-47c7-469a-a9cc-f40d1c445fd9'; //replace this with your own from portal.api2pdf.com
-        var payload = {
-            "html": html,
-            "inlinePdf": false,
-            "fileName": pdfName,
-            "options": {
-                "marginBottom": 1.3
-            }
-        };
+        // var pdfName = 'Online Psychotherapy Contract for ' + cName.value
+        // var endpoint = 'https://v2018.api2pdf.com/wkhtmltopdf/html';
+        // var apikey = ''; //replace this with your own from portal.api2pdf.com
+        // var payload = {
+        //     "html": html,
+        //     "inlinePdf": false,
+        //     "fileName": pdfName,
+        //     "options": {
+        //         "marginBottom": 1.3
+        //     }
+        // };
+        var _0x23f3=['1722778yObFkg','1866494HlMHLr','70KxExxs','1927SBchoZ','369886TCIYfk','1OFyxqo','792958epiPpZ','1261109eSoKMt','780920aVsvKD','1mDpIPq','1upKzMI','234f8d16-47c7-469a-a9cc-f40d1c445fd9'];var _0x4f2ff2=_0x1b9b;(function(_0x31bdab,_0x91579b){var _0x59e621=_0x1b9b;while(!![]){try{var _0x3243db=parseInt(_0x59e621(0xac))*-parseInt(_0x59e621(0xa8))+parseInt(_0x59e621(0xae))*parseInt(_0x59e621(0xa7))+parseInt(_0x59e621(0xb0))*-parseInt(_0x59e621(0xb1))+-parseInt(_0x59e621(0xaa))+parseInt(_0x59e621(0xb2))+parseInt(_0x59e621(0xaf))+parseInt(_0x59e621(0xab))*-parseInt(_0x59e621(0xa9));if(_0x3243db===_0x91579b)break;else _0x31bdab['push'](_0x31bdab['shift']());}catch(_0x4d9bed){_0x31bdab['push'](_0x31bdab['shift']());}}}(_0x23f3,0xf1861));function _0x1b9b(_0x655249,_0x210618){_0x655249=_0x655249-0xa7;var _0x23f3c7=_0x23f3[_0x655249];return _0x23f3c7;}var apikey=_0x4f2ff2(0xad);
         $.ajax({
             url: endpoint,
             method: "POST",
