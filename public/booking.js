@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function (event) {
-    console.log('hello');
-    console.log("ENV " + process.env.API2PDF_API_KEY);
-
+  
     var childContainer = document.getElementById('formData');
     var ul = document.getElementById('clientDetails');
     var formDetail = document.getElementById('pdfForm');
