@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function (event) {
+
+    console.log("ENV " + process.env.LIVEapi2pdf);
+
     var childContainer = document.getElementById('formData');
     var ul = document.getElementById('clientDetails');
     var formDetail = document.getElementById('pdfForm');
