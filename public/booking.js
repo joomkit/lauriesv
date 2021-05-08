@@ -1,6 +1,6 @@
 
 var netfcheck = api2pdf();
-console.log(netfcheck);
+
 
 async function api2pdf(parameter) {
     //const url = `/.netlify/functions/functionname?parameter=${parameter}`;

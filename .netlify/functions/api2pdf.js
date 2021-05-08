@@ -8,14 +8,14 @@
 //     var pdfName = 'Online Psychotherapy Contract for john';
 //     var endpoint = 'https://v2018.api2pdf.com/wkhtmltopdf/html';
 //     var cookie = '234f8d16-47c7-469a-a9cc-f40d1c445fd9'; //replace this with your own from portal.api2pdf.com
-//     var payload = {
-//         "html": "<p>hello john</p>",
-//         "inlinePdf": false,
-//         "fileName": pdfName,
-//         "options": {
-//             "marginBottom": 1.3
-//         }
-//     };
+    var payload = {
+        "html": "<p>hello john</p>",
+        "inlinePdf": false,
+        "fileName": pdfName,
+        "options": {
+            "marginBottom": 1.3
+        }
+    };
 //     const xhr = new XMLHttpRequest();
 //     xhr.open("POST", endpoint, true);
 //
@@ -50,14 +50,28 @@
 //
 const fetch = require("node-fetch");
 
-const API_ENDPOINT = "https://icanhazdadjoke.com/";
+// const API_ENDPOINT = "https://icanhazdadjoke.com/";
 
+const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
+
+const payload = {
+    "html": "<p>hello john</p>",
+    "inlinePdf": false,
+    "fileName": pdfName,
+    "options": {
+        "marginBottom": 1.3
+    }
+};
 exports.handler = async (event, context) => {
-    return fetch(API_ENDPOINT, { headers: { Accept: "application/json" } })
+    return fetch(API_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
+        body: JSON.stringify(payload)
+    })
         .then((response) => response.json())
         .then((data) => ({
             statusCode: 200,
-            body: data.joke,
+            body: data.pdf,
         }))
         .catch((error) => ({ statusCode: 422, body: String(error) }));
 };
