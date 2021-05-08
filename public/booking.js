@@ -1,7 +1,28 @@
 
 
 
-
+// call netlify function to get api data
+async function callApi2pdf(html,cName) {
+    // console.log(cName.value);
+    // console.log(html);
+    var mydata = { name: cName.value };
+    const url = '/.netlify/functions/api2pdf';
+    try {
+        const response = await fetch(url,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            //body: JSON.stringify(user)
+            body: JSON.stringify(mydata)
+        });
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
 
@@ -30,28 +51,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     //     cName.nodeValue = this.value;
     // });
 
-    // call netlify function to get api data
-    async function callApi2pdf(html,cName) {
-        // console.log(cName.value);
-        // console.log(html);
-        var mydata = { name: cName.value };
-        const url = '/.netlify/functions/api2pdf';
-        try {
-            const response = await fetch(url,{
-               method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                //body: JSON.stringify(user)
-                body: JSON.stringify(mydata)
-            });
-            const data = await response.json();
-            console.log(data);
-            return data;
-        } catch (err) {
-            console.log(err);
-        }
-    }
+
 
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
