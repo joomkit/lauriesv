@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     // call netlify function to get api data
     async function api2pdf(html,cName) {
-        console.log(cName);
+        console.log(html);
         const url = '/.netlify/functions/api2pdf';
         try {
             const response = await fetch(url,{
