@@ -37,7 +37,7 @@ function printHtmlToPdfXHR(html) {
 
 exports.handler = async (event, context) => {
 
-    var pdf = printHtmlToPdfXHR()
+    const pdf = printHtmlToPdfXHR(html)
     return {
         statusCode: 200,
         body: JSON.stringify({
