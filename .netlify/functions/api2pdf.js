@@ -1,5 +1,6 @@
 
-const fetch = require("node-fetch");
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
 
 const html = "<p>hello john</p>"
 
