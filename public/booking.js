@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 //body: JSON.stringify(user)
                 body: JSON.stringify({
                     html: html,
-                    name: cName
+                    name: cName.value
                 })
             });
             const data = await response.json();
