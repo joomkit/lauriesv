@@ -1,19 +1,8 @@
 
-var netfcheck = api2pdf();
 
 
-async function api2pdf(parameter) {
-    //const url = `/.netlify/functions/functionname?parameter=${parameter}`;
-    const url = '/.netlify/functions/api2pdf';
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-        return data;
-    } catch (err) {
-        console.log(err);
-    }
-}
+
+
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -41,6 +30,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
     //     cName.nodeValue = this.value;
     // });
 
+    // call netlify function to get api data
+    async function api2pdf(html,cName) {
+        const url = '/.netlify/functions/api2pdf';
+        try {
+            const response = await fetch(url,{
+                method: `POST`,
+                body: JSON.stringify({
+                    html: html,
+                    name: cName
+                })
+            });
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
@@ -51,9 +58,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
         childContainer.removeChild(formDetail);
         var html =  document.documentElement.outerHTML;
         // var html = $('html').html();
-        console.log("pureXHR " + html);
-        printHtmlToPdfXHR(html);
+        // console.log("pureXHR " + html);
+        //printHtmlToPdfXHR(html);
         // printHtmlToPdf(html);
+        var download = api2pdf(html,cName);
+        console.log(download)
 
     });
 
