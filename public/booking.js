@@ -1,6 +1,21 @@
 
 var netfcheck = api2pdf();
 console.log(netfcheck);
+
+async function api2pdf(parameter) {
+    //const url = `/.netlify/functions/functionname?parameter=${parameter}`;
+    const url = `/.netlify/functions/api2pdf`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', function (event) {
 
     var childContainer = document.getElementById('formData');
