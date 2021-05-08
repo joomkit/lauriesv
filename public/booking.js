@@ -4,7 +4,7 @@ console.log(netfcheck);
 
 async function api2pdf(parameter) {
     //const url = `/.netlify/functions/functionname?parameter=${parameter}`;
-    const url = `/.netlify/functions/api2pdf`;
+    const url = '/.netlify/functions/api2pdf';
     try {
         const response = await fetch(url);
         const data = await response.json();
