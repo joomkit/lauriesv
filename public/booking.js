@@ -35,11 +35,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
         const url = '/.netlify/functions/api2pdf';
         try {
             const response = await fetch(url,{
-               // method: 'POST',
-                // body: JSON.stringify({
-                //     html: html,
-                //     name: cName
-                // })
+               method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                //body: JSON.stringify(user)
+                body: JSON.stringify({
+                    html: html,
+                    name: cName
+                })
             });
             const data = await response.json();
             console.log(data);
