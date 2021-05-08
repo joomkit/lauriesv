@@ -9,7 +9,8 @@ async function callApi2pdf(html,cName) {
     const url = '/.netlify/functions/api2pdf';
     try {
         const response = await fetch(url,{
-            method: 'POST',
+            body: JSON.stringify(mydata),
+            method: 'POST'
             // headers: {
             //     'Content-Type': 'application/json'
             // },
