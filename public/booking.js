@@ -1,5 +1,8 @@
+
+var netfcheck = api2pdf();
+console.log(netfcheck);
 document.addEventListener('DOMContentLoaded', function (event) {
-  
+
     var childContainer = document.getElementById('formData');
     var ul = document.getElementById('clientDetails');
     var formDetail = document.getElementById('pdfForm');
@@ -31,10 +34,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
         buildClientDetail();
         showClientDetails();
         childContainer.removeChild(formDetail);
-        var myhtml = $('html').html();
-        // console.log(myhtml);
-
-        printHtmlToPdf(myhtml);
+        var html =  document.documentElement.outerHTML;
+        // var html = $('html').html();
+        console.log("pureXHR " + html);
+        printHtmlToPdfXHR(html);
+        // printHtmlToPdf(html);
 
     });
 
@@ -129,6 +133,41 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+
+    function printHtmlToPdfXHR(html) {
+        var pdfName = 'Online Psychotherapy Contract for ' + cName.value
+        var endpoint = 'https://v2018.api2pdf.com/wkhtmltopdf/html';
+        var cookie = '234f8d16-47c7-469a-a9cc-f40d1c445fd9'; //replace this with your own from portal.api2pdf.com
+        var payload = {
+            "html": html,
+            "inlinePdf": false,
+            "fileName": pdfName,
+            "options": {
+                "marginBottom": 1.3
+            }
+        };
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", endpoint, true);
+
+        //Send the proper header information along with the request
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        /* Authorization header */
+        xhr.setRequestHeader("Authorization", cookie);
+
+        xhr.send(JSON.stringify(payload));
+
+        xhr.onreadystatechange = function() { // Call a function when the state changes.
+            if (xhr.readyState === 4 && this.status === 200) {
+                // Request finished. Do processing here.
+                var xhr_response = xhr.response;
+                console.log(xhr.response.pdf);
+            }
+        }
+
+// xhr.send(new Int8Array());
+// xhr.send(document);
+    }
+
     function printHtmlToPdf(html) {
 
         var pdfName = 'Online Psychotherapy Contract for ' + cName.value
@@ -156,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             },
             success: function (data) {
                 console.log(data.pdf); //this is the url to the pdf, do something with it
-                window.location = data.pdf;
+                //window.location = data.pdf;
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus);
