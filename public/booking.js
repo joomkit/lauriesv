@@ -5,25 +5,14 @@ console.log(netfcheck);
 async function api2pdf(parameter) {
     //const url = `/.netlify/functions/functionname?parameter=${parameter}`;
     const url = `/.netlify/functions/api2pdf`;
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-
-    // //Send the proper header information along with the request
-    // xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    //
-    // xhr.send(JSON.stringify(payload));
-
-    xhr.onreadystatechange = function() { // Call a function when the state changes.
-        if (xhr.readyState === 4 && this.status === 200) {
-            // Request finished. Do processing here.
-            var xhr_response = xhr.response;
-            console.log(xhr.response);
-        }else{
-            console.log(xhr.status);
-        }
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.log(err);
     }
-
 }
 
 
