@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     async function api2pdf(html,cName) {
         console.log(cName.value);
         console.log(html);
+        var data = { html: html, name: cName.value };
         const url = '/.netlify/functions/api2pdf';
         try {
             const response = await fetch(url,{
@@ -42,10 +43,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     'Content-Type': 'application/json'
                 },
                 //body: JSON.stringify(user)
-                body: JSON.stringify({
-                    html: html,
-                    name: cName.value
-                })
+                body: JSON.stringify(data)
             });
             const data = await response.json();
             console.log(data);
