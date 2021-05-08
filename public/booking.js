@@ -32,12 +32,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     // call netlify function to get api data
     async function api2pdf(html,cName) {
+        console.log(cName);
         const url = '/.netlify/functions/api2pdf';
         try {
             const response = await fetch(url,{
                method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
+                    'Content-Type': 'application/json'
                 },
                 //body: JSON.stringify(user)
                 body: JSON.stringify({
