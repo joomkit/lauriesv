@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // });
 
     // call netlify function to get api data
-    async function api2pdf(html,cName) {
-        console.log(cName.value);
-        console.log(html);
-        var mydata = { html: html, name: cName.value };
+    async function callApi2pdf(html,cName) {
+        // console.log(cName.value);
+        // console.log(html);
+        var mydata = { name: cName.value };
         const url = '/.netlify/functions/api2pdf';
         try {
             const response = await fetch(url,{
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         // console.log("pureXHR " + html);
         //printHtmlToPdfXHR(html);
         // printHtmlToPdf(html);
-        var download = api2pdf(html,cName);
+        var download = callApi2pdf(html,cName);
         console.log(download)
 
     });
