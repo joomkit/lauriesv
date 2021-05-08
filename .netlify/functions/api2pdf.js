@@ -1,5 +1,5 @@
 
-
+const fetch = require("node-fetch");
 
 const html = "<p>hello john</p>"
 
