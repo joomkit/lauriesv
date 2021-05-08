@@ -55,7 +55,7 @@ const fetch = require("node-fetch");
 const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 const pdfName = 'Online Psychotherapy Contract for ';
 const payload = {
-    "html": html,
+    "html": body.html,
     "inlinePdf": false,
     "fileName": pdfName,
     "options": {
