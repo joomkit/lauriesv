@@ -50,15 +50,16 @@
 //
 const fetch = require("node-fetch");
 
+// const API_ENDPOINT = "https://icanhazdadjoke.com/";
+
 const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
 exports.handler = async (event, context) => {
-    const subs = JSON.parse(event.body)
+    // const subs = JSON.parse(event.body)
     console.log(event);
-    return subs;
-    const pdfName = 'Online Psychotherapy Contract for ' + subs.cName;
+    const pdfName = 'Online Psychotherapy Contract for ';
     const payload = {
-        "html": subs.html,
+        "html": event.body.html,
         "inlinePdf": false,
         "fileName": pdfName,
         "options": {
