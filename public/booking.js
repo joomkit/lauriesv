@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
 
+        // set html to pass to api via netlfiy function
         hidePdfElements();
         buildClientDetail();
         showClientDetails();
