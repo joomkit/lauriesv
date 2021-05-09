@@ -61,7 +61,7 @@ exports.handler = async (event, context) => {
     return {
 
         statusCode: 200,
-        body: JSON.stringify(mydata.name)
+        body: mydata.name
     }
 
     // const pdfName = 'Online Psychotherapy Contract ' + mydata.name;
