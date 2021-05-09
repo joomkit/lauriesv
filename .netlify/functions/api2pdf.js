@@ -13,7 +13,7 @@ console.log("hello");
 
     const pdfName = 'Online Psychotherapy Contract';
     const payload = {
-        "html": ""+name+"",
+        "html": ""+cpdfHTMLStr+"",
         "inlinePdf": false,
         "fileName": pdfName,
         "options": {
