@@ -46,7 +46,7 @@ async function callApi2pdf() {
 
     let formData = new FormData();
     formData.append('name', document.getElementById('name').value)
-    formData.append('html', document.getElementById('pdfhtml').value)
+    formData.append('pdfhtml', document.getElementById('pdfhtml').value)
 
     try {
         const responseData = await postFormDataAsJson({ url, formData });
