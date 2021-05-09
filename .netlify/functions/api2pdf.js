@@ -41,6 +41,6 @@ exports.handler = async (event, context) => {
     const pdf = printHtmlToPdfXHR(html)
     return {
         statusCode: 200,
-        body: JSON.stringify(pdf)
+        body: pdf
     }
 }
