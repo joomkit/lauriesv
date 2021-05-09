@@ -7,16 +7,15 @@ exports.handler = async (event, context) => {
 
 
     var fbody = JSON.parse(event.body)
-    var name = fbody.name;
+    var pname = fbody.name;
+    var pageHtml = fbody.pdfhtml;
     return {
         statusCode: 200,
-        body: JSON.stringify(name)
+        body: JSON.stringify(pageHtml)
     };
+    
 
-    // const cnpdfObj = JSON.parse(cpdfHTMLStr)
-    console.log(cpdfHTMLStr);
-
-    const pdfName = 'Online Psychotherapy Contract';
+    const pdfName = 'Online Psychotherapy Contract for ' + pname;
     const payload = {
         "html": "cpdfHTMLStr",
         "inlinePdf": false,
