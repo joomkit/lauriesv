@@ -6,8 +6,8 @@ const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 exports.handler = async (event, context) => {
 
 
-    const cpdfHTMLStr = JSON.stringify(event.body.pdfhtml)
-    return JSON.stringify(cpdfHTMLStr)
+    const cpdfHTMLStr = event.body.name;
+    return JSON.stringify(cpdfHTMLStr);
     // const cnpdfObj = JSON.parse(cpdfHTMLStr)
     // console.log(cnpdfObj);
 
