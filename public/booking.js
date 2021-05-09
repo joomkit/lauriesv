@@ -58,13 +58,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
         hidePdfElements();
         buildClientDetail();
         showClientDetails();
-        childContainer.removeChild(formDetail);
+        //childContainer.removeChild(formDetail);
+        //get new dom data
         var html =  document.documentElement.outerHTML;
+        //store as hdden form field
+        document.getElementById('pdfhtml').value = html;
         // var html = $('html').html();
         // console.log("pureXHR " + html);
         //printHtmlToPdfXHR(html);
         // printHtmlToPdf(html);
-        var download = callApi2pdf(html,cName);
+       var download = callApi2pdf(html,cName);
         console.log(download)
 
     });
