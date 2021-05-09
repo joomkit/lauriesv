@@ -5,11 +5,11 @@ const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
 exports.handler = async (event, context) => {
 
+console.log("hello");
+    var cpdfHTMLStr = event.body.pdfhtml
 
-    var cpdfHTMLStr = JSON.parse(event.body);
-    return cpdfHTMLStr;
     // const cnpdfObj = JSON.parse(cpdfHTMLStr)
-    // console.log(cnpdfObj);
+    console.log(cpdfHTMLStr);
 
     const pdfName = 'Online Psychotherapy Contract';
     const payload = {
