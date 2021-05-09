@@ -41,7 +41,7 @@ async function postFormDataAsJson({ url, formData }) {
 }
 
 // call netlify function to get api data
-async function callApi2pdf(html,cName) {
+async function callApi2pdf() {
     const url = '/.netlify/functions/api2pdf';
 
     let formData = new FormData();
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         // console.log("pureXHR " + html);
         //printHtmlToPdfXHR(html);
         // printHtmlToPdf(html);
-       var download = callApi2pdf(html,cName);
+       var download = callApi2pdf();
         console.log(download)
 
     });
