@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
 
 
     var cpdfHTMLStr = JSON.parse(event.body);
-    return JSON.stringify(cpdfHTMLStr);
+    return cpdfHTMLStr;
     // const cnpdfObj = JSON.parse(cpdfHTMLStr)
     // console.log(cnpdfObj);
 
