@@ -79,4 +79,5 @@ exports.handler = async (event, context) => {
             body: JSON.stringify(data.pdf)
         }))
         .catch((error) => ({ statusCode: 422, body: String(error) }));
+    
 };
