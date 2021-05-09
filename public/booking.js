@@ -27,6 +27,8 @@ async function callApi2pdf(html,cName) {
     const url = '/.netlify/functions/api2pdf';
 
     let formData = new FormData();
+    formData.append('name', document.getElementById('name').value)
+    formData.append('html', document.getElementById('pdfhtml').value)
 
     try {
         const responseData = await postFormDataAsJson({ url, formData });
