@@ -56,14 +56,21 @@ const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
 exports.handler = async (event, context) => {
     // const html = JSON.parse(event.body.html)
-    const submittedData = event.body.split('&')
-    const html = decodeURIComponent(submittedData[0].substr(5).replace(/\+/g, '%20'))
 
     return {
         statusCode: 200,
-        body: JSON.stringify(submittedData),
+        body: JSON.stringify(event.body)
 
     }
+
+    // const submittedData = event.body.split('&')
+    // const html = decodeURIComponent(submittedData[0].substr(5).replace(/\+/g, '%20'))
+    //
+    // return {
+    //     statusCode: 200,
+    //     body: JSON.stringify(submittedData),
+    //
+    // }
     // const pdfName = 'Online Psychotherapy Contract';
     // const payload = {
     //     "html": "<p>"+event.body+"</p>",
