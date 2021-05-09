@@ -31,7 +31,9 @@ function printHtmlToPdfXHR(html) {
             // Request finished. Do processing here.
             var xhr_response = xhr.response;
             console.log(xhr.response.pdf);
-            return xhr.responseText;
+            return xhr_response;
+        }else{
+            return xhr.status
         }
     }
 }
@@ -41,6 +43,6 @@ exports.handler = async (event, context) => {
     const pdf = printHtmlToPdfXHR(html)
     return {
         statusCode: 200,
-        body: JSON.stringify("foo")
+        body: JSON.stringify(pdf)
     }
 }
