@@ -10,7 +10,10 @@ const myObjStr = JSON.stringify(myObj);
 console.log(myObjStr);
 // "{"name":"Sammy","age":6,"favoriteFood":"Tofu"}"
 
+
 console.log(JSON.parse(myObjStr));
+const newObj = JSON.parse(myObjStr);
+console.log(newObj.name)
 // Object {name:"Sammy",age:6,favoriteFood:"Tofu"}
 
 

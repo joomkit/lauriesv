@@ -58,11 +58,11 @@ exports.handler = async (event, context) => {
     const formdata = JSON.stringify(event.body)
     const mydata = JSON.parse(formdata)
     //
-    return {
-
-        statusCode: 200,
-        body: JSON.stringify(mydata)
-    }
+    // return {
+    //
+    //     statusCode: 200,
+    //     body: JSON.stringify(mydata)
+    // }
 
     // const submittedData = event.body.split('&')
     // const html = decodeURIComponent(submittedData[0].substr(5).replace(/\+/g, '%20'))
@@ -72,24 +72,24 @@ exports.handler = async (event, context) => {
     //     body: JSON.stringify(formdata),
     //
     // }
-    // const pdfName = 'Online Psychotherapy Contract ' + JSON.parse(formdata.name);
-    // const payload = {
-    //     "html": JSON.parse(formdata.html),
-    //     "inlinePdf": false,
-    //     "fileName": pdfName,
-    //     "options": {
-    //         "marginBottom": 1.3
-    //     }
-    // };
-    // return fetch(API_ENDPOINT, {
-    //     method: "POST",
-    //     headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
-    //     body: JSON.stringify(payload)
-    // })
-    //     .then((response) => response.json())
-    //     .then((data) => ({
-    //         statusCode: 200,
-    //         body: data.pdf,
-    //     }))
-    //     .catch((error) => ({ statusCode: 422, body: String(error) }));
+    const pdfName = 'Online Psychotherapy Contract ' + mydata.name;
+    const payload = {
+        "html": mydata.html,
+        "inlinePdf": false,
+        "fileName": pdfName,
+        "options": {
+            "marginBottom": 1.3
+        }
+    };
+    return fetch(API_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
+        body: JSON.stringify(payload)
+    })
+        .then((response) => response.json())
+        .then((data) => ({
+            statusCode: 200,
+            body: data.pdf,
+        }))
+        .catch((error) => ({ statusCode: 422, body: String(error) }));
 };
