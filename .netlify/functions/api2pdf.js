@@ -55,12 +55,11 @@ const fetch = require("node-fetch");
 const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
 exports.handler = async (event, context) => {
-    const name = event.body.name
+    const cname = JSON.stringify(event.body.name)
 
     return {
         statusCode: 200,
-        body: JSON.stringify(name)
-
+        body: cname
     }
 
     // const submittedData = event.body.split('&')
