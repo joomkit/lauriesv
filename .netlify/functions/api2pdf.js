@@ -1,5 +1,6 @@
 
-const XMLHttpRequest = require("xmlhttprequest");
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
 
 const html = "<p>hello john</p>"
 
