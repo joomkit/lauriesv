@@ -55,7 +55,7 @@ const fetch = require("node-fetch");
 const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
 exports.handler = async (event, context) => {
-    // const cname = JSON.stringify(event.body.name)
+    const formdata = JSON.stringify(event.body)
     //
     // return {
     //     statusCode: 200,
@@ -70,9 +70,9 @@ exports.handler = async (event, context) => {
     //     body: JSON.stringify(submittedData),
     //
     // }
-    const pdfName = 'Online Psychotherapy Contract ' + JSON.parse(event.body.name);
+    const pdfName = 'Online Psychotherapy Contract ' + JSON.parse(formdata.name);
     const payload = {
-        "html": JSON.parse(event.body.html),
+        "html": JSON.parse(formdata.html),
         "inlinePdf": false,
         "fileName": pdfName,
         "options": {
