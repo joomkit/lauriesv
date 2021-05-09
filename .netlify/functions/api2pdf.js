@@ -58,7 +58,11 @@ exports.handler = async (event, context) => {
     // const html = JSON.parse(event.body.html)
     const submittedData = event.body.split('&')
 
-    return (submittedData)
+    return {
+        statusCode: 200,
+        body: JSON.stringify(submittedData),
+
+    }
     // const pdfName = 'Online Psychotherapy Contract';
     // const payload = {
     //     "html": "<p>"+event.body+"</p>",
