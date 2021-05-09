@@ -59,7 +59,7 @@ exports.handler = async (event, context) => {
 
     return {
         statusCode: 200,
-        body: JSON.stringify(event.body.name)
+        body: JSON.stringify(event)
     }
 
     // const submittedData = event.body.split('&')
