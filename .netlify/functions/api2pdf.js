@@ -1,5 +1,5 @@
 
-const fetch = require("xmlhttprequest");
+const XMLHttpRequest = require("xmlhttprequest");
 
 const html = "<p>hello john</p>"
 
