@@ -20,7 +20,7 @@ exports.handler = async (event) => {
 
     const pdfName = 'Online Psychotherapy Contract';
     const payload = {
-        "html": mydata.html,
+        "html": event.body.html,
         "inlinePdf": false,
         "fileName": pdfName,
         "options": {
