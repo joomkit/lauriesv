@@ -21,6 +21,7 @@ async function callApi2pdf(html,cName) {
             });
         const data = await response.json();
         console.log(data);
+        console.log(response.statusText)
         return data;
 
     } catch (err) {
