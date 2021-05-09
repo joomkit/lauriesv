@@ -56,11 +56,12 @@ const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
 exports.handler = async (event, context) => {
     const formdata = JSON.stringify(event.body)
+    const mydata = JSON.parse(formdata)
     //
     return {
 
         statusCode: 200,
-        body: formdata
+        body: JSON.stringify(mydata)
     }
 
     // const submittedData = event.body.split('&')

@@ -1,4 +1,19 @@
 
+const myObj = {
+    name: 'Skip',
+    age: 2,
+    favoriteFood: 'Steak'
+};
+
+const myObjStr = JSON.stringify(myObj);
+
+console.log(myObjStr);
+// "{"name":"Sammy","age":6,"favoriteFood":"Tofu"}"
+
+console.log(JSON.parse(myObjStr));
+// Object {name:"Sammy",age:6,favoriteFood:"Tofu"}
+
+
 async function postFormDataAsJson({ url, formData }) {
     const plainFormData = Object.fromEntries(formData.entries());
     const formDataJsonString = JSON.stringify(plainFormData);
