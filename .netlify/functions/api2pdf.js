@@ -14,7 +14,6 @@ exports.handler = async (event, context) => {
     //     body: JSON.stringify(pageHtml)
     // };
 
-
     const pdfName = 'Online Psychotherapy Contract for ' + pname;
     const payload = {
         "html": pageHtml,

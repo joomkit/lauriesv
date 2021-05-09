@@ -16,7 +16,6 @@ const newObj = JSON.parse(myObjStr);
 console.log(newObj.name)
 // Object {name:"Sammy",age:6,favoriteFood:"Tofu"}
 
-
 async function postFormDataAsJson({ url, formData }) {
     const plainFormData = Object.fromEntries(formData.entries());
     const formDataJsonString = JSON.stringify(plainFormData);
@@ -31,7 +30,7 @@ async function postFormDataAsJson({ url, formData }) {
     };
 
     const response = await fetch(url, fetchOptions);
-    console.log(response)
+
     if (!response.ok) {
         const errorMessage = await response.text();
         throw new Error(errorMessage);
