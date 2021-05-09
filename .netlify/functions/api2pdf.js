@@ -31,7 +31,7 @@ function printHtmlToPdfXHR(html) {
             // Request finished. Do processing here.
             var xhr_response = xhr.response;
             console.log(xhr.response.pdf);
-            return xhr_response.pdf;
+            return xhr.responseText;
         }
     }
 }
