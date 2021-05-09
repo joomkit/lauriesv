@@ -1,71 +1,21 @@
-//
-// const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-//
-//
-// const html = "<p>hello john</p>"
-//
-// function printHtmlToPdfXHR(html) {
-//     var pdfName = 'Online Psychotherapy Contract for john';
-//     var endpoint = 'https://v2018.api2pdf.com/wkhtmltopdf/html';
-//     var cookie = '234f8d16-47c7-469a-a9cc-f40d1c445fd9'; //replace this with your own from portal.api2pdf.com
-//     var payload = {
-//         "html": "<p>hello john</p>",
-//         "inlinePdf": false,
-//         "fileName": pdfName,
-//         "options": {
-//             "marginBottom": 1.3
-//         }
-//     };
-//     const xhr = new XMLHttpRequest();
-//     xhr.open("POST", endpoint, true);
-//
-//     //Send the proper header information along with the request
-//     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//     /* Authorization header */
-//     xhr.setRequestHeader("Authorization", cookie);
-//
-//     xhr.send(JSON.stringify(payload));
-//
-//     xhr.onreadystatechange = function () { // Call a function when the state changes.
-//         if (xhr.readyState === 4 && this.status === 200) {
-//             // Request finished. Do processing here.
-//             var xhr_response = xhr.response;
-//             console.log(xhr.response.pdf);
-//             return xhr_response;
-//         }else{
-//             return xhr.status;
-//         }
-//     }
-// }
-//
-// exports.handler = async (event, context) => {
-//
-//     return {
-//         statusCode: 200,
-//         body: JSON.stringify({
-//             data: printHtmlToPdfXHR(html)
-//         })
-//     }
-// }
-//
 const fetch = require("node-fetch");
 
 // const API_ENDPOINT = "https://icanhazdadjoke.com/";
 
 const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
-exports.handler = async (event, context, callback) => {
-    // const formdata = JSON.stringify(event.body)
+exports.handler = async (event) => {
+     const formdata = JSON.stringify(body)
     const mydata = JSON.parse(formdata)
     //
-    const formdata = (body) => {callback( null, {
-        statusCode: 200,
-        body: JSON.stringify(body)
-    })}
+    // const formdata = (body) => {callback( null, {
+    //     statusCode: 200,
+    //     body: JSON.stringify(body)
+    // })}
     return {
 
         statusCode: 200,
-        body: JSON.stringify(formdata.html)
+        body: JSON.stringify(formdata)
     }
 
     // const pdfName = 'Online Psychotherapy Contract ' + mydata.name;
