@@ -4,14 +4,20 @@
 // call netlify function to get api data
 async function callApi2pdf(html,cName) {
     const url = '/.netlify/functions/api2pdf';
-    const sendData = { html: html, name: cName};
+
+    let formData = new FormData();
+    // let form = document.getElementById('pdfForm');
+    // Value of first <input> element in the form
+    formData.append('html', document.getElementById('pdfhtml').value)
+    console.log(formData);
+
     try {
         const response = await fetch(url,
 
             {
                 method: "POST",
-                headers: { Accept: "application/json"},
-                body: JSON.stringify(sendData)
+                body: new URLSearchParams(formData).toString(),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             });
         const data = await response.json();
         console.log(data);
