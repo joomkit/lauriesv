@@ -1,32 +1,61 @@
 
+async function postFormDataAsJson({ url, formData }) {
+    const plainFormData = Object.fromEntries(formData.entries());
+    const formDataJsonString = JSON.stringify(plainFormData);
 
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+        body: formDataJsonString,
+    };
+
+    const response = await fetch(url, fetchOptions);
+
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+    }
+
+    return response.json();
+}
 
 // call netlify function to get api data
 async function callApi2pdf(html,cName) {
     const url = '/.netlify/functions/api2pdf';
 
     let formData = new FormData();
-    // let form = document.getElementById('pdfForm');
-    // Value of first <input> element in the form
-    formData.append('html', document.getElementById('pdfhtml').value)
-    console.log(formData);
 
     try {
-        const response = await fetch(url,
+        const responseData = await postFormDataAsJson({ url, formData });
 
-            {
-                method: "POST",
-                body: new URLSearchParams(formData).toString(),
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            });
-        const data = await response.json();
-        console.log(data);
-        console.log(response.statusText)
-        return data;
-
-    } catch (err) {
-        console.log(err);
+        console.log({ responseData });
+    } catch (error) {
+        console.error(error);
     }
+    // let form = document.getElementById('pdfForm');
+    // Value of first <input> element in the form
+    // formData.append('html', document.getElementById('pdfhtml').value)
+    // console.log(formData);
+    //
+    // try {
+    //     const response = await fetch(url,
+    //
+    //         {
+    //             method: "POST",
+    //             body: new URLSearchParams(formData).toString(),
+    //             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    //         });
+    //     const data = await response.json();
+    //     console.log(data);
+    //     console.log(response.statusText)
+    //     return data;
+    //
+    // } catch (err) {
+    //     console.log(err);
+    // }
 }
 
 
