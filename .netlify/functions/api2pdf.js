@@ -57,37 +57,38 @@ const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 exports.handler = async (event, context) => {
     const formdata = JSON.stringify(event.body)
     //
-    // return {
-    //     statusCode: 200,
-    //     body: JSON.stringify(event)
-    // }
+    return {
+        formdata
+        // statusCode: 200,
+        // body: JSON.stringify(event)
+    }
 
     // const submittedData = event.body.split('&')
     // const html = decodeURIComponent(submittedData[0].substr(5).replace(/\+/g, '%20'))
     //
     // return {
     //     statusCode: 200,
-    //     body: JSON.stringify(submittedData),
+    //     body: JSON.stringify(formdata),
     //
     // }
-    const pdfName = 'Online Psychotherapy Contract ' + JSON.parse(formdata.name);
-    const payload = {
-        "html": JSON.parse(formdata.html),
-        "inlinePdf": false,
-        "fileName": pdfName,
-        "options": {
-            "marginBottom": 1.3
-        }
-    };
-    return fetch(API_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
-        body: JSON.stringify(payload)
-    })
-        .then((response) => response.json())
-        .then((data) => ({
-            statusCode: 200,
-            body: data.pdf,
-        }))
-        .catch((error) => ({ statusCode: 422, body: String(error) }));
+    // const pdfName = 'Online Psychotherapy Contract ' + JSON.parse(formdata.name);
+    // const payload = {
+    //     "html": JSON.parse(formdata.html),
+    //     "inlinePdf": false,
+    //     "fileName": pdfName,
+    //     "options": {
+    //         "marginBottom": 1.3
+    //     }
+    // };
+    // return fetch(API_ENDPOINT, {
+    //     method: "POST",
+    //     headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
+    //     body: JSON.stringify(payload)
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => ({
+    //         statusCode: 200,
+    //         body: data.pdf,
+    //     }))
+    //     .catch((error) => ({ statusCode: 422, body: String(error) }));
 };
