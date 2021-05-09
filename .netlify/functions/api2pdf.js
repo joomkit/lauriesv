@@ -56,11 +56,11 @@ const API_ENDPOINT = "https://v2018.api2pdf.com/wkhtmltopdf/html";
 
 exports.handler = async (event, context) => {
     // const cname = JSON.stringify(event.body.name)
-    //
-    // return {
-    //     statusCode: 200,
-    //     body: cname
-    // }
+
+    return {
+        statusCode: 200,
+        body: JSON.stringify(event.body.name)
+    }
 
     // const submittedData = event.body.split('&')
     // const html = decodeURIComponent(submittedData[0].substr(5).replace(/\+/g, '%20'))
@@ -70,24 +70,24 @@ exports.handler = async (event, context) => {
     //     body: JSON.stringify(submittedData),
     //
     // }
-    const pdfName = 'Online Psychotherapy Contract ' + event.body.name;
-    const payload = {
-        "html": event.body.html,
-        "inlinePdf": false,
-        "fileName": pdfName,
-        "options": {
-            "marginBottom": 1.3
-        }
-    };
-    return fetch(API_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
-        body: JSON.stringify(payload)
-    })
-        .then((response) => response.json())
-        .then((data) => ({
-            statusCode: 200,
-            body: data.pdf,
-        }))
-        .catch((error) => ({ statusCode: 422, body: String(error) }));
+    // const pdfName = 'Online Psychotherapy Contract ' + event.body.name;
+    // const payload = {
+    //     "html": event.body.html,
+    //     "inlinePdf": false,
+    //     "fileName": pdfName,
+    //     "options": {
+    //         "marginBottom": 1.3
+    //     }
+    // };
+    // return fetch(API_ENDPOINT, {
+    //     method: "POST",
+    //     headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
+    //     body: JSON.stringify(payload)
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => ({
+    //         statusCode: 200,
+    //         body: data.pdf,
+    //     }))
+    //     .catch((error) => ({ statusCode: 422, body: String(error) }));
 };
