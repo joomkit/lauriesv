@@ -58,25 +58,25 @@ exports.handler = async (event, context) => {
     //const cname = JSON.parse(event.body.name)
 
     console.log(event);
-
-    const pdfName = 'Online Psychotherapy Contract';
-    const payload = {
-        "html": "<p>"+event.body+"</p>",
-        "inlinePdf": false,
-        "fileName": pdfName,
-        "options": {
-            "marginBottom": 1.3
-        }
-    };
-    return fetch(API_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
-        body: JSON.stringify(payload)
-    })
-        .then((response) => response.json())
-        .then((data) => ({
-            statusCode: 200,
-            body: data.pdf,
-        }))
-        .catch((error) => ({ statusCode: 422, body: String(error) }));
+    return (event.body)
+    // const pdfName = 'Online Psychotherapy Contract';
+    // const payload = {
+    //     "html": "<p>"+event.body+"</p>",
+    //     "inlinePdf": false,
+    //     "fileName": pdfName,
+    //     "options": {
+    //         "marginBottom": 1.3
+    //     }
+    // };
+    // return fetch(API_ENDPOINT, {
+    //     method: "POST",
+    //     headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
+    //     body: JSON.stringify(payload)
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => ({
+    //         statusCode: 200,
+    //         body: data.pdf,
+    //     }))
+    //     .catch((error) => ({ statusCode: 422, body: String(error) }));
 };
