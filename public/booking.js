@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         buildClientDetail();
         showClientDetails();
         childContainer.removeChild(formDetail);
-        var html =  JSON.stringify(document.documentElement.outerHTML);
+        var html =  document.documentElement.outerHTML;
         // var html = $('html').html();
         // console.log("pureXHR " + html);
         //printHtmlToPdfXHR(html);
