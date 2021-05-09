@@ -58,9 +58,9 @@ exports.handler = async (event, context) => {
     const formdata = JSON.stringify(event.body)
     //
     return {
-        formdata
-        // statusCode: 200,
-        // body: JSON.stringify(event)
+
+        statusCode: 200,
+        body: formdata
     }
 
     // const submittedData = event.body.split('&')
