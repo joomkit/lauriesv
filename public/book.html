@@ -25,6 +25,7 @@
           type="text/css">
     <link rel="stylesheet" href="wireframe.css">
 
+
     <style>
       /*!
 * Wireframe Pingendo template (https://templates.pingendo.com)
@@ -6883,10 +6884,10 @@
             </div>
           <hr class="col-12 my-2">
             <!-- form -->
-          <div class="col-12 col-md-6 offset-md-3 form-wrapper mb-5" id="formData">
+          <div class="col-12 col-md-6 offset-md-3 form-wrapper mb-5 " id="formData">
 
 
-            <form id="pdfForm" name="pdfForm" method="post" accept-charset="UTF-8">
+            <form id="pdfForm" class="pdf-hide" name="pdfForm" method="post" accept-charset="UTF-8">
 
               <div class="form-group bmd-form-group">
                 <label for="name" class="bmd-label-floating">Client name:</label>
@@ -6955,11 +6956,18 @@
                     </div>
                 </div>
                 <input type="hidden" id="pdfhtml" value="" >
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
 
 
-              <button id="agreed" type="submit" class="btn btn-primary post-btn">I agree</button>
               <!--            <a class="btn btn-primary" href="" >I Agree to download and send this to lauriemacdonaldme.com</a>-->
             </form>
+              <button id="agreed" type="submit" class="btn btn-secondary post-btn">I agree</button>
+
+              <a id="download" class="btn btn-secondary download hidden"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download contract document</a>
           </div>
         </div>
     </div>

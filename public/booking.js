@@ -109,6 +109,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
 
+        // disable button
+        // $(this).prop("disabled", true);
+        // add spinner to button
+        var downloadButton = document.getElementById('download');
+
+        this.innerHTML = `<i class="c-inline-spinner"></i> Making document...`
+
         // set html to pass to api via netlfiy function
         hidePdfElements();
         buildClientDetail();
@@ -116,14 +123,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
         //childContainer.removeChild(formDetail);
         //get new dom data
         var html =  document.documentElement.outerHTML;
-        //store as hdden form field
+        //store document for pdf as  hidden form field
         document.getElementById('pdfhtml').value = html;
-        // var html = $('html').html();
-        // console.log("pureXHR " + html);
-        //printHtmlToPdfXHR(html);
-        // printHtmlToPdf(html);
-       var download = callApi2pdf();
-        console.log(download)
+
+        // call lambda function to create document and get link
+        var downloadLink = callApi2pdf();
+
+        this.className = 'hidden'
+
+        setTimeout(function(){
+            downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
+            downloadButton.setAttribute('href', downloadLink);
+        }, 2000);
 
     });
 

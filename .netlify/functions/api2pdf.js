@@ -9,10 +9,6 @@ exports.handler = async (event, context) => {
     var fbody = JSON.parse(event.body)
     var pname = fbody.name;
     var pageHtml = fbody.pdfhtml;
-    // return {
-    //     statusCode: 200,
-    //     body: JSON.stringify(pageHtml)
-    // };
 
     const pdfName = 'Online Psychotherapy Contract for ' + pname;
     const payload = {
