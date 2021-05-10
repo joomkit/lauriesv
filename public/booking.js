@@ -90,8 +90,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         // show spinner after you have pshed html into hidden field for pdf
         this.setAttribute('class', 'btn btn-outline-secondary download visible');
+        this.setAttribute("style",  "display:block!important");
         this.innerHTML = `<i class="c-inline-spinner"></i> Making document...`
-        
+
         // call lambda function to create document and get link
         var downloadLink = callApi2pdf();
 
