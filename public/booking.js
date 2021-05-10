@@ -78,18 +78,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
 
-        this.innerHTML = `<i class="c-inline-spinner"></i> Making document...`
-
         // set html to pass to api via netlfiy function
         hidePdfElements();
         buildClientDetail();
         showClientDetails();
-        //childContainer.removeChild(formDetail);
+
         //get new dom data
         var html =  document.documentElement.outerHTML;
         //store document for pdf as  hidden form field
         document.getElementById('pdfhtml').value = html;
 
+        // show spinner after you have pshed html into hidden field for pdf
+        this.setAttribute('class', 'btn btn-outline-secondary download visible');
+        this.innerHTML = `<i class="c-inline-spinner"></i> Making document...`
+        
         // call lambda function to create document and get link
         var downloadLink = callApi2pdf();
 
