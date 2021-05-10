@@ -3,6 +3,24 @@
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
+    var childContainer = document.getElementById('formData');
+    var ul = document.getElementById('clientDetails');
+    var formDetail = document.getElementById('pdfForm');
+    var createButton = document.getElementById('agreed');
+    var downloadLink = document.getElementById('download');
+    var cName = document.getElementById('name');
+    var email = document.getElementById('emailAddress');
+    var clientsReference = document.getElementById('clientsReference');
+    var mobile = document.getElementById('mobile');
+    var landline = document.getElementById('landline');
+    var address = document.getElementById('address');
+    var dob = document.getElementById('dob');
+    var referringAgent = document.getElementById('referringAgent');
+    var insuranceNo = document.getElementById('insuranceNo');
+    var authorisationNo = document.getElementById('authorisationNo');
+    var insuranceCompanyName = document.getElementById('insuranceCompanyName');
+    var insuranceOrSelfFunding;
+    var funding;
 
     async function postFormDataAsJson({ url, formData }) {
         const plainFormData = Object.fromEntries(formData.entries());
@@ -46,31 +64,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
             return customErr
         }
     }
-    
-    var childContainer = document.getElementById('formData');
-    var ul = document.getElementById('clientDetails');
-    var formDetail = document.getElementById('pdfForm');
-    var createButton = document.getElementById('agreed');
-    var cName = document.getElementById('name');
-    var email = document.getElementById('emailAddress');
-    var clientsReference = document.getElementById('clientsReference');
-    var mobile = document.getElementById('mobile');
-    var landline = document.getElementById('landline');
-    var address = document.getElementById('address');
-    var dob = document.getElementById('dob');
-    var referringAgent = document.getElementById('referringAgent');
-    var insuranceNo = document.getElementById('insuranceNo');
-    var authorisationNo = document.getElementById('authorisationNo');
-    var insuranceCompanyName = document.getElementById('insuranceCompanyName');
-    var insuranceOrSelfFunding;
-    var funding;
 
     // cName.addEventListener('input', function (evt) {
     //     console.log(this.value);
     //     cName.nodeValue = this.value;
     // });
 
-
+    // downloadLink.addEventListener("click", function (e) {
+    //     e.preventDefault();
+    //
+    // });
 
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
@@ -90,21 +93,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
         // call lambda function to create document and get link
         var downloadLink = callApi2pdf();
 
-        // var downloadButton = document.getElementById('download');
-        console.log(downloadLink.responseData)
-
-        // this.className = 'hidden'
-        //
-        // setTimeout(function(){
-        //     downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
-        //     downloadButton.setAttribute('href', downloadLink);
-        // }, 2000);
-
     });
 
     function makeDownloadButton(downloadLink){
         var downloadButton = document.getElementById('download');
-        console.log(downloadLink)
+        
+        createButton.setAttribute('class', 'btn btn-outline-secondary download hidden');
 
         setTimeout(function(){
             downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
