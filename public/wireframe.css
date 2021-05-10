@@ -6589,3 +6589,6 @@ pingendo {
 #agreed:hover{
   color:#ffffff;
 }
+#download{
+  text-decoration: none;
+}
