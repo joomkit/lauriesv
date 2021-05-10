@@ -32,7 +32,8 @@ async function callApi2pdf() {
 
     try {
         const responseData = await postFormDataAsJson({ url, formData });
-        console.log({ responseData });
+        console.log(responseData );
+
         return responseData
     } catch (error) {
         var customErr = "couldn't make document error: " + error
@@ -109,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
         // call lambda function to create document and get link
         var downloadLink = callApi2pdf();
 
-        makeDownloadButton(downloadLink)
         // var downloadButton = document.getElementById('download');
-        // console.log(downloadLink)
+        console.log(downloadLink.responseData)
+        makeDownloadButton(downloadLink)
         // this.className = 'hidden'
         //
         // setTimeout(function(){
@@ -127,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         setTimeout(function(){
             downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
-            downloadButton.setAttribute('href', downloadLink);
+            downloadButton.setAttribute('href', downloadLink.responseData);
         }, 2000);
     }
 
