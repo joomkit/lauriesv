@@ -1,21 +1,4 @@
 
-const myObj = {
-    name: 'Skip',
-    age: 2,
-    favoriteFood: 'Steak'
-};
-
-const myObjStr = JSON.stringify(myObj);
-
-console.log(myObjStr);
-// "{"name":"Sammy","age":6,"favoriteFood":"Tofu"}"
-
-
-console.log(JSON.parse(myObjStr));
-const newObj = JSON.parse(myObjStr);
-console.log(newObj.name)
-// Object {name:"Sammy",age:6,favoriteFood:"Tofu"}
-
 async function postFormDataAsJson({ url, formData }) {
     const plainFormData = Object.fromEntries(formData.entries());
     const formDataJsonString = JSON.stringify(plainFormData);
@@ -111,11 +94,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // disable button
-        // $(this).prop("disabled", true);
-        // add spinner to button
-        var downloadButton = document.getElementById('download');
-
         this.innerHTML = `<i class="c-inline-spinner"></i> Making document...`
 
         // set html to pass to api via netlfiy function
@@ -131,14 +109,27 @@ document.addEventListener('DOMContentLoaded', function (event) {
         // call lambda function to create document and get link
         var downloadLink = callApi2pdf();
 
-        this.className = 'hidden'
+        makeDownloadButton(downloadLink)
+        // var downloadButton = document.getElementById('download');
+        // console.log(downloadLink)
+        // this.className = 'hidden'
+        //
+        // setTimeout(function(){
+        //     downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
+        //     downloadButton.setAttribute('href', downloadLink);
+        // }, 2000);
+
+    });
+
+    function makeDownloadButton(downloadLink){
+        var downloadButton = document.getElementById('download');
+        console.log(downloadLink)
 
         setTimeout(function(){
             downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
             downloadButton.setAttribute('href', downloadLink);
         }, 2000);
-
-    });
+    }
 
     function buildClientDetail() {
         let li = document.createElement("li");
