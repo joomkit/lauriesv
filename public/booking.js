@@ -1,72 +1,52 @@
 
-async function postFormDataAsJson({ url, formData }) {
-    const plainFormData = Object.fromEntries(formData.entries());
-    const formDataJsonString = JSON.stringify(plainFormData);
-
-    const fetchOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-        },
-        body: formDataJsonString,
-    };
-
-    const response = await fetch(url, fetchOptions);
-
-    if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(errorMessage);
-    }
-
-    return response.json();
-}
-
-// call netlify function to get api data
-async function callApi2pdf() {
-    const url = '/.netlify/functions/api2pdf';
-
-    let formData = new FormData();
-    formData.append('name', document.getElementById('name').value)
-    formData.append('pdfhtml', document.getElementById('pdfhtml').value)
-
-    try {
-        const responseData = await postFormDataAsJson({ url, formData });
-        console.log(responseData );
-
-        return responseData
-    } catch (error) {
-        var customErr = "couldn't make document error: " + error
-        console.error(error);
-        return customErr
-    }
-    // let form = document.getElementById('pdfForm');
-    // Value of first <input> element in the form
-    // formData.append('html', document.getElementById('pdfhtml').value)
-    // console.log(formData);
-    //
-    // try {
-    //     const response = await fetch(url,
-    //
-    //         {
-    //             method: "POST",
-    //             body: new URLSearchParams(formData).toString(),
-    //             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-    //         });
-    //     const data = await response.json();
-    //     console.log(data);
-    //     console.log(response.statusText)
-    //     return data;
-    //
-    // } catch (err) {
-    //     console.log(err);
-    // }
-}
 
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
 
+    async function postFormDataAsJson({ url, formData }) {
+        const plainFormData = Object.fromEntries(formData.entries());
+        const formDataJsonString = JSON.stringify(plainFormData);
+
+        const fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: formDataJsonString,
+        };
+
+        const response = await fetch(url, fetchOptions);
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            throw new Error(errorMessage);
+        }
+
+        return response.json();
+    }
+
+// call netlify function to get api data
+    async function callApi2pdf() {
+        const url = '/.netlify/functions/api2pdf';
+
+        let formData = new FormData();
+        formData.append('name', document.getElementById('name').value)
+        formData.append('pdfhtml', document.getElementById('pdfhtml').value)
+
+        try {
+            const responseData = await postFormDataAsJson({ url, formData });
+            console.log(responseData );
+            makeDownloadButton(responseData)
+            // return responseData
+        } catch (error) {
+            var customErr = "couldn't make document error: " + error
+            console.error(error);
+            return customErr
+        }
+    }
+    
     var childContainer = document.getElementById('formData');
     var ul = document.getElementById('clientDetails');
     var formDetail = document.getElementById('pdfForm');
@@ -112,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         // var downloadButton = document.getElementById('download');
         console.log(downloadLink.responseData)
-        makeDownloadButton(downloadLink)
+
         // this.className = 'hidden'
         //
         // setTimeout(function(){
@@ -128,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         setTimeout(function(){
             downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
-            downloadButton.setAttribute('href', downloadLink.responseData);
+            downloadButton.setAttribute('href', downloadLink);
         }, 2000);
     }
 
