@@ -6583,3 +6583,9 @@ pingendo {
   opacity: 0;
   transition: visibility 0s 2s, opacity 2s linear;
 }
+#agreed{
+  color:#ffffff;
+}
+#agreed:hover{
+  color:#ffffff;
+}
