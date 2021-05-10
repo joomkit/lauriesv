@@ -99,14 +99,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         var downloadButton = document.getElementById('download');
 
-        createButton.setAttribute('class', 'btn btn-outline-secondary download hidden');
+
 
         setTimeout(function(){
             console.log("make and show download button")
+            createButton.setAttribute('class', 'btn btn-outline-secondary download hidden');
             downloadButton.setAttribute("style",  "display:block!important");
             downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
             downloadButton.setAttribute('href', downloadLink);
-        }, 2000);
+        }, 1500);
     }
 
     function buildClientDetail() {
