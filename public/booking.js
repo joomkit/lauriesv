@@ -49,10 +49,12 @@ async function callApi2pdf() {
 
     try {
         const responseData = await postFormDataAsJson({ url, formData });
-
         console.log({ responseData });
+        return responseData
     } catch (error) {
+        var customErr = "couldn't make document error: " + error
         console.error(error);
+        return customErr
     }
     // let form = document.getElementById('pdfForm');
     // Value of first <input> element in the form
