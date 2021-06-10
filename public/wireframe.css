@@ -6592,3 +6592,7 @@ pingendo {
 #download{
   text-decoration: none;
 }
+
+.error{
+  background-color: yellow;
+}

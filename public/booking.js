@@ -22,6 +22,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var insuranceOrSelfFunding;
     var funding;
 
+    function scrollTo(element, to, duration) {
+        console.log("hit");
+        if (duration <= 0) return;
+        var difference = to - element.scrollTop;
+        var perTick = difference / duration * 10;
+
+        setTimeout(function() {
+            console.log("scroll baby");
+            element.scrollTop = element.scrollTop + perTick;
+            if (element.scrollTop === to) return;
+            scrollTo(element, to, duration - 10);
+        }, 10);
+    }
+
     async function postFormDataAsJson({ url, formData }) {
         const plainFormData = Object.fromEntries(formData.entries());
         const formDataJsonString = JSON.stringify(plainFormData);
@@ -74,9 +88,42 @@ document.addEventListener('DOMContentLoaded', function (event) {
     //     e.preventDefault();
     //
     // });
+    function resetListen(){
+        for(var i=0; i < formDetail.elements.length; i++){
+
+            if(formDetail.elements[i].value === '' && formDetail.elements[i].hasAttribute('required')){
+                // formDetail.elements[i].scrollIntoView();
+               // formDetail.elements[i].scrollIntoView({ behavior: 'smooth', block: 'center', inline: "nearest"});
+                formDetail.elements[i].setAttribute('style','border-color:red;background-color:yellow');
+                // alert('There are some required fields!');
+
+            }else{
+                formDetail.elements[i].setAttribute('style','border-color:#ced4da;background-color:white');
+            }
+        }
+    }
+    formDetail.addEventListener("change", (e) =>{
+
+        resetListen();
+    });
+
 
     createButton.addEventListener("click", function (e) {
         e.preventDefault();
+
+        // var form = document.getElementById('theForm');
+
+            for(var i=0; i < formDetail.elements.length; i++){
+                formDetail.elements[i].setAttribute('style','border-color:#ced4da;background-color:white');
+                if(formDetail.elements[i].value === '' && formDetail.elements[i].hasAttribute('required')){
+                    // formDetail.elements[i].scrollIntoView();
+                    formDetail.elements[i].scrollIntoView({ behavior: 'smooth', block: 'center', inline: "nearest"});
+                    formDetail.elements[i].setAttribute('style','border-color:red;background-color:yellow');
+                    // alert('There are some required fields!');
+                    return false;
+                }
+            }
+
 
         // set html to pass to api via netlfiy function
         hidePdfElements();
@@ -101,8 +148,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     function makeDownloadButton(downloadLink){
 
         var downloadButton = document.getElementById('download');
-
-
 
         setTimeout(function(){
             console.log("make and show download button")
@@ -281,10 +326,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
     let inputs = [...wrapper.querySelectorAll('.form-control')];
 
     function validate() {
-        let isIncomplete = inputs.some(input => !input.value);
-        postBtn.disabled = isIncomplete;
-        postBtn.style.cursor = isIncomplete ? 'not-allowed' : 'pointer';
+
+        // let isIncomplete = inputs.some(input => !input.value);
+        // console.log(isIncomplete);
+        // postBtn.disabled = isIncomplete;
+        // postBtn.style.cursor = isIncomplete ? 'not-allowed' : 'pointer';
     }
+
+
+
+    formDetail.addEventListener('submit', validate)
 
     wrapper.addEventListener('input', validate);
     validate();
