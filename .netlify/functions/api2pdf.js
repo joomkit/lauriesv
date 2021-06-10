@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
     };
     return fetch(API_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json", Authorization: "234f8d16-47c7-469a-a9cc-f40d1c445fd9" },
+        headers: { Accept: "application/json", Authorization: "9f1aad5a-ee04-44c9-9282-f9e851646382" },
         body: JSON.stringify(payload)
     })
         .then((response) => response.json())
