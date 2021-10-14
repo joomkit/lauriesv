@@ -204,8 +204,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
         // rem 14/10/2021
-        // let ref = document.createElement("li");
-        // ref.appendChild(document.createTextNode("Reference:" + clientsReference.value));  ul.appendChild(ref);
+        let ref = document.createElement("li");
+        ref.appendChild(document.createTextNode("Date:" + formDate));  ul.appendChild(ref);
 
         // or do custom editable
         // var input = document.createElement("input");
