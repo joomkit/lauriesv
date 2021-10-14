@@ -1,4 +1,11 @@
 
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    const formDate = today.toDateString();
+    console.log(formDate);
+    document.getElementById('cdate').textContent = formDate;
+
+
 
 
 
@@ -164,9 +171,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
 
-
-        let ref = document.createElement("li");
-        ref.appendChild(document.createTextNode("Reference:" + clientsReference.value));  ul.appendChild(ref);
+        // rem 14/10/2021
+        // let ref = document.createElement("li");
+        // ref.appendChild(document.createTextNode("Reference:" + clientsReference.value));  ul.appendChild(ref);
 
         // or do custom editable
         // var input = document.createElement("input");

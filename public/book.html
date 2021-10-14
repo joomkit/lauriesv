@@ -155,7 +155,9 @@
 
       b,
       strong {
-        font-weight: bolder; }
+        font-weight: bold;
+          font-weight: 700;
+      }
 
       small {
         font-size: 80%; }
@@ -6664,7 +6666,7 @@
                 </p>
                 <h3>Type of Therapy
                 </h3>
-                <p>The mode of therapy I practice may be classified as Integrative. My
+                <p>The mode of therapy I practice is Integrative. My
                     methods are primarily brief and solution focused, but attention is paid to
                     conscious and unconscious processing, personality functioning, as well as
                     relational and contextual factors connected to the issue you bring to
@@ -6702,14 +6704,10 @@
                     request by email giving you the date and start time, or offering you a list
                     of alternative appointment dates or times.
                 </p>
-                <p>If you prefer to have a set time and day for your appointments each
-                    week, this can be achieved by block booking your sessions. You may
-                    block book sessions at anytime.
+                <p>
+                    If you prefer to have a set time and day for your appointments each week, this can be achieved by block booking your sessions. When I have a limited number of available sessions, this will ensure that you have a session booked each week.
                 </p>
-                <p>In response to your request, I will send you an invoice enabling you to
-                    make a payment by bank transfer. If self funding please pay for the
-                    session on the day of the session and use the name the session is
-                    booked in as your reference.
+                <p>In response to your request, I will send you an invoice enabling you to make a payment by bank transfer. If self funding please pay for the session on the day of the session and use the name of the person having the session as your reference on the bank statement.
                 </p>
                 <p>I will also send you an appointment confirmation email and a link to join
                     the session will be emailed on the day of the session.
@@ -6728,16 +6726,14 @@
                     start time may be rescheduled to any date in the future without charge,
                     if a free slot is available on the desired date.
                 </p>
-                <p>You may reschedule an appointment within 48 hours of the
-                    appointment start time if a free slot is available during the same day
-                    or any day during the same week as the original appointment.
+                <p>You may reschedule an appointment within 48 hours of the appointment start time if a free slot is available during the same day or any day during the same week as the original appointment. When times are busy it may not be possible to reschedule and a fee will be incurred.
                 </p>
                 <p>Please note that you cannot reschedule an appointment after it’s original
                     start time has passed.
                 </p>
                 <h3>Extended and unforeseen absence from therapy</h3>
-                <p>If you intend to interrupt therapy for two or more consecutive sessions
-                    please discuss this with me as soon as possible.
+                <p>
+                    If you intend to interrupt therapy for two or more consecutive sessions please discuss this with me as soon as possible so that your therapy is planned around this absence.
                 </p>
                 <p>If I am unable to attend a scheduled session I will give you as much
                     notice as possible by email, telephone or text. If I do not attend a
@@ -6761,9 +6757,11 @@
                 </p>
                 <p>For online or telephone sessions, you will be sent an invoice by email
                     once you book an appointment. Payments can be made by bank transfer
-                    and should be made to the account on the invoice. Bank transfer
-                    payments should be made on the day of the session. You may also block
+                    and should be made to the account on the invoice. Bank transfer payments should be made on the day of the session and the your name used as the transfer reference.You may also block
                     book sessions and pay for them by bank transfer.
+                </p>
+                <p>
+                    If you agree to make BACS payments and the payment is not made on the day of the session <strong>an administration fee will be charged for the raising of subsequent invoices.</strong>
                 </p>
                 <ul>
                     <li>Adult indiviual day time fee: £65.00</li>
@@ -6813,9 +6811,7 @@
                 </p>
                 <h3>Making contact
                 </h3>
-                <p>Before your first online session you will receive an appointment
-                </p>
-                <p>confirmation email with the date and time of your appointment, and
+                <p>Before your first online session you will receive an appointment confirmation email with the date and time of your appointment, and
                     instructions on how to join the session.
                 </p>
                 <p>You will need a Computer, Tablet, or Smartphone to join a video session.
@@ -6847,11 +6843,7 @@
                 </p>
                 <h3>Making a Complaint
                 </h3>
-                <p>If for any reason you are dissatisfied with the service I provide, please
-                    advise me in writing at your earliest convenience. I will endeavour to
-                    address your complaint, but should my endeavours be deemed
-                    insufficient, you may make a formal complaint to the United Kingdom
-                    Council for Psychotherapy (UKCP).
+                <p>If for any reason you are dissatisfied with the service I provide, please advise me in writing at your earliest convenience. I will endeavour to address your complaint, but should my endeavours be deemed insufficient, you may make a formal complaint to the United Kingdom Council for Psychotherapy (UKCP) or The British Association of Counsellors and Psychotherapists.
                 </p>
 
 
@@ -6885,41 +6877,38 @@
             </div>
           <hr class="col-12 my-2">
             <!-- form -->
-          <div class="col-12 col-md-6 offset-md-3 form-wrapper mb-5 " id="formData">
+          <div class="col-12 col-md-8 offset-md-2 form-wrapper mb-5 " id="formData">
 
 
             <form id="pdfForm" class="pdf-hide" name="pdfForm" method="post" accept-charset="UTF-8">
 
               <div class="form-group bmd-form-group">
-                <label for="name" class="bmd-label-floating">Client name:</label>
+                  <h4>Date: <span id="cdate"></span></h4>
+                  <span class="small">Fields marked with an asterix * are required</span><br><br>
+                <label for="name" class="bmd-label-floating">Client name: *</label>
                 <input type="text" class="form-control" name="name" id="name" value="" required=""
                        style="cursor: auto;">
               </div>
               <div class="form-group bmd-form-group">
-                <label for="clientsReference" class="bmd-label-floating">Client reference:</label>
-                <input type="text" class="form-control" name="clientsReference" id="clientsReference" value=""
-                       >
-              </div>
-              <div class="form-group bmd-form-group">
-                <label for="emailAddress" class="bmd-label-floating">Email address:</label>
+                <label for="emailAddress" class="bmd-label-floating">Email address: *</label>
                 <input type="text" class="form-control" name="emailAddress" id="emailAddress" value=""
                        required="">
                 <span class="bmd-help small">I'll never share your email with anyone else.</span>
               </div>
                 <div class="form-group bmd-form-group">
-                    <label for="mobile" class="bmd-label-floating">Mobile phone no</label>
+                    <label for="mobile" class="bmd-label-floating">Mobile phone no: *</label>
                     <input type="text" class="form-control" id="mobile" name="mobile" required="">
                 </div>
                 <div class="form-group bmd-form-group">
-                    <label for="landline" class="bmd-label-floating">Telephone landline</label>
+                    <label for="landline" class="bmd-label-floating">Telephone landline: *</label>
                     <input type="text" class="form-control" id="landline" name="landline" required="">
                 </div>
                 <div class="form-group bmd-form-group">
-                    <label for="address" class="bmd-label-floating">Home address</label>
+                    <label for="address" class="bmd-label-floating">Home address: *</label>
                     <input type="text" class="form-control" id="address" name="address" required="">
                 </div>
                 <div class="form-group bmd-form-group">
-                    <label for="dob" class="bmd-label-floating">Date of birth</label>
+                    <label for="dob" class="bmd-label-floating">Date of birth: *</label>
                     <input type="text" class="form-control" id="dob" name="dob" required="">
                 </div>
                 <div class="form-group bmd-form-group">
