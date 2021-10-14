@@ -193,8 +193,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
             // downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
             downloadButton.setAttribute('href', downloadLink);
 
-                $('.modal').modal('hide');
-
         }, 1500);
 
     }
