@@ -7,7 +7,24 @@
 
 
 
+    var modalAgree = document.getElementById('agreementModal');
+    // $('#agreementModal').modal()
 
+    $(document).ready(function() {
+
+        /* Centering the modal vertically */
+        function alignModal() {
+            var modalDialog = $(this).find(".modal-dialog");
+            modalDialog.css("margin-top", Math.max(0,
+                ($(window).height() - modalDialog.height()) / 2));
+        }
+        $(".modal").on("shown.bs.modal", alignModal);
+
+        /* Resizing the modal according the screen size */
+        $(window).on("resize", function() {
+            $(".modal:visible").each(alignModal);
+        });
+    });
 
 document.addEventListener('DOMContentLoaded', function (event) {
     var childContainer = document.getElementById('formData');
@@ -77,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         try {
             const responseData = await postFormDataAsJson({ url, formData });
             console.log(responseData );
+
             makeDownloadButton(responseData)
             // return responseData
         } catch (error) {
@@ -142,27 +160,43 @@ document.addEventListener('DOMContentLoaded', function (event) {
         //store document for pdf as  hidden form field
         document.getElementById('pdfhtml').value = html;
 
-        // show spinner after you have pshed html into hidden field for pdf
-        this.setAttribute('class', 'btn btn-secondary download visible');
-        this.setAttribute("style",  "display:block!important");
-        this.innerHTML = `<i class="c-inline-spinner"></i> Making document...`
+        // // show spinner after you have pshed html into hidden field for pdf
+        // this.setAttribute('class', 'btn btn-secondary download visible');
+        // this.setAttribute("style",  "display:block!important");
+        // this.innerHTML = `<i class="c-inline-spinner"></i> Making document...`
 
         // call lambda function to create document and get link
         var downloadLink = callApi2pdf();
+
+        // for local dev we just play with UI here and set and call download link, makeDownloadButton
+        // var downloadLink = "https://www.google.com";
+        // makeDownloadButton(downloadLink);
+
+
+        setTimeout(function () {
+            $('#agreementModal').modal()
+        }, 1000);
 
     });
 
     function makeDownloadButton(downloadLink){
 
+        //local test
+
+        console.log("dlink ", downloadLink);
         var downloadButton = document.getElementById('download');
 
         setTimeout(function(){
             console.log("make and show download button")
             createButton.setAttribute('class', 'btn btn-outline-secondary download hidden');
-            downloadButton.setAttribute("style",  "display:block!important");
-            downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
+            // downloadButton.setAttribute("style",  "display:block!important");
+            // downloadButton.setAttribute('class', 'btn btn-outline-secondary download visible');
             downloadButton.setAttribute('href', downloadLink);
+
+                $('.modal').modal('hide');
+
         }, 1500);
+
     }
 
     function buildClientDetail() {
